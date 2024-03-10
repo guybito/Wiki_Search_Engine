@@ -16,7 +16,6 @@ As part of the information retrieval course, we were given a task to build a sea
 
 ## Dictionaries
 *  Docs_len_Body_Dict
-*  docs_avg_len
 *  id_title_dict
 *  norm_dict
 *  page_rank
