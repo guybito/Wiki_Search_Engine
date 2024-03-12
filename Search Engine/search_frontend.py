@@ -59,6 +59,10 @@ pageRank = pickle.loads(contents)
 Inverted_index_body = InvertedIndex()
 Inverted_index_body = InvertedIndex.read_index("Postings_body", "Body_Inverted_Index", bucket_name)
 
+# Inverted index for body with ngrams
+Inverted_index_body_ngrams = InvertedIndex()
+Inverted_index_body_ngrams = InvertedIndex.read_index("Postings_body_Ngrams", "Body_Inverted_Index_Ngrams", bucket_name)
+
 # Inverted index for title
 Inverted_index_title = InvertedIndex()
 Inverted_index_title = InvertedIndex.read_index("Postings_title", "Title_Inverted_Index", bucket_name)
@@ -71,9 +75,6 @@ Inverted_index_title_without_stem = InvertedIndex.read_index("Postings_title_wit
 # Inverted index for Anchor
 Inverted_index_anchor = InvertedIndex()
 Inverted_index_anchor = InvertedIndex.read_index("Postings_anchor", "Anchor_Inverted_Index", bucket_name)
-
-Inverted_index_body_new = InvertedIndex()
-Inverted_index_body_new = InvertedIndex.read_index("Postings_body", "Body_Inverted_Index", bucket_name)
 ########################################################################
 class MyFlaskApp(Flask):
     def run(self, host=None, port=None, debug=None, **options):
@@ -108,7 +109,7 @@ def search():
     if len(query) == 0:
         return jsonify(res)
     # BEGIN SOLUTION
-    res = backend_search_V1(query, Inverted_index_body_new, Inverted_index_title, Inverted_index_title_without_stem,
+    res = backend_search_V1(query, Inverted_index_body, Inverted_index_title, Inverted_index_title_without_stem,
                          Inverted_index_anchor, pageRank, pageView, avg_docs_len, doc_id_len_dict, id_title_dict,
                          norm_dict, bucket_name)
     # END SOLUTION
