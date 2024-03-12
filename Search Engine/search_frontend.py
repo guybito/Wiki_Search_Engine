@@ -136,9 +136,7 @@ def search_body():
     if len(query) == 0:
         return jsonify(res)
     # BEGIN SOLUTION
-    res = backend_search_V2(query, Inverted_index_body_new, Inverted_index_title, Inverted_index_title_without_stem,
-                         Inverted_index_anchor, pageRank, pageView, avg_docs_len, doc_id_len_dict, id_title_dict,
-                         norm_dict, bucket_name)
+
     # END SOLUTION
     return jsonify(res)
 
@@ -169,9 +167,7 @@ def search_title():
     if len(query) == 0:
         return jsonify(res)
     # BEGIN SOLUTION
-    res = backend_search_V3(query, Inverted_index_body_new, Inverted_index_title, Inverted_index_title_without_stem,
-                         Inverted_index_anchor, pageRank, pageView, avg_docs_len, doc_id_len_dict, id_title_dict,
-                         norm_dict, bucket_name)
+
     # END SOLUTION
     return jsonify(res)
 
@@ -202,9 +198,7 @@ def search_anchor():
     if len(query) == 0:
         return jsonify(res)
     # BEGIN SOLUTION
-    res =backend_search_V4(query, Inverted_index_body_new, Inverted_index_title, Inverted_index_title_without_stem,
-                         Inverted_index_anchor, pageRank, pageView, avg_docs_len, doc_id_len_dict, id_title_dict,
-                         norm_dict, bucket_name)
+
     # END SOLUTION
     return jsonify(res)
 
